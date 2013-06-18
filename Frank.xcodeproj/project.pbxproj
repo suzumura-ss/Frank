@@ -14,6 +14,10 @@
 		0626BFAE174300240020B33B /* DumpCommandRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 0626BFAC174300240020B33B /* DumpCommandRoute.h */; };
 		0626BFAF174300240020B33B /* DumpCommandRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0626BFAD174300240020B33B /* DumpCommandRoute.m */; };
 		06CF35CA1744DECB00268ABF /* DumpCommandRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0626BFAD174300240020B33B /* DumpCommandRoute.m */; };
+		2222310A176FFB3E00A80F89 /* FileChangeObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 22223106176FFB3E00A80F89 /* FileChangeObserver.h */; };
+		2222310B176FFB3E00A80F89 /* FileChangeObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 22223107176FFB3E00A80F89 /* FileChangeObserver.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		2222310C176FFB3E00A80F89 /* FrankProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 22223108176FFB3E00A80F89 /* FrankProxy.h */; };
+		2222310D176FFB3E00A80F89 /* FrankProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 22223109176FFB3E00A80F89 /* FrankProxy.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		30228E201642161200B1F9E7 /* AccessibilityCheckCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D67F2AAC13F5E7FA00A0BFF1 /* AccessibilityCheckCommand.m */; };
 		30228E221642161200B1F9E7 /* AppCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DD76A12BADFE100E10B8C /* AppCommand.m */; };
 		30228E261642161200B1F9E7 /* EnginesCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FA01B714283C4F00576AEE /* EnginesCommand.m */; };
@@ -287,6 +291,10 @@
 		00E864C4161D708B00E01209 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		0626BFAC174300240020B33B /* DumpCommandRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DumpCommandRoute.h; sourceTree = "<group>"; };
 		0626BFAD174300240020B33B /* DumpCommandRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DumpCommandRoute.m; sourceTree = "<group>"; };
+		22223106176FFB3E00A80F89 /* FileChangeObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileChangeObserver.h; sourceTree = "<group>"; };
+		22223107176FFB3E00A80F89 /* FileChangeObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileChangeObserver.m; sourceTree = "<group>"; };
+		22223108176FFB3E00A80F89 /* FrankProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrankProxy.h; sourceTree = "<group>"; };
+		22223109176FFB3E00A80F89 /* FrankProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrankProxy.m; sourceTree = "<group>"; };
 		30228E2916421C4400B1F9E7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		302B803F1646DE02000F9861 /* NSImage+Frank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+Frank.h"; sourceTree = "<group>"; };
 		302B80401646DE02000F9861 /* NSImage+Frank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+Frank.m"; sourceTree = "<group>"; };
@@ -745,6 +753,10 @@
 				D67F2ABE13F5F55A00A0BFF1 /* FrankLoader.m */,
 				D6D05CA511C883AA0081C5A5 /* FrankServer.h */,
 				D6D05CA611C883AA0081C5A5 /* FrankServer.m */,
+				22223108176FFB3E00A80F89 /* FrankProxy.h */,
+				22223109176FFB3E00A80F89 /* FrankProxy.m */,
+				22223106176FFB3E00A80F89 /* FileChangeObserver.h */,
+				22223107176FFB3E00A80F89 /* FileChangeObserver.m */,
 			);
 			name = Frank;
 			sourceTree = "<group>";
@@ -865,6 +877,8 @@
 				303CFCE416C80B830004BD05 /* DeviceCommand.h in Headers */,
 				30E82E3217128AB500E5BC7C /* ResolutionCommand.h in Headers */,
 				0626BFAE174300240020B33B /* DumpCommandRoute.h in Headers */,
+				2222310A176FFB3E00A80F89 /* FileChangeObserver.h in Headers */,
+				2222310C176FFB3E00A80F89 /* FrankProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1238,6 +1252,8 @@
 				30E82E3417128AB500E5BC7C /* ResolutionCommand.m in Sources */,
 				387BFA7D17036DDA007B9F17 /* UISlider+PublicAutomation.m in Sources */,
 				0626BFAF174300240020B33B /* DumpCommandRoute.m in Sources */,
+				2222310B176FFB3E00A80F89 /* FileChangeObserver.m in Sources */,
+				2222310D176FFB3E00A80F89 /* FrankProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

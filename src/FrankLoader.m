@@ -19,6 +19,10 @@
 #import "NSApplication+FrankAutomation.h"
 #endif
 
+#if TARGET_OS_IPHONE
+#import "FrankProxy.h"
+#endif
+
 BOOL frankLogEnabled = NO;
 
 @implementation FrankLoader
@@ -29,6 +33,9 @@ BOOL frankLogEnabled = NO;
     
 #if !TARGET_OS_IPHONE
     [[NSApplication sharedApplication] FEX_startTrackingMenus];
+#endif
+#if TARGET_OS_IPHONE
+    [FrankProxy run];
 #endif
 }
 

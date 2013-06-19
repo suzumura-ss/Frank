@@ -78,3 +78,23 @@ desc "copies contents of dist dir to the frank-cucumber gem's frank-skeleton"
 task :copy_dist_to_gem do
   sh "cp -r dist/* gem/frank-skeleton/"
 end
+
+desc "update libFrank.a and libFrankMac.a"
+task :update => [:build_for_release, :revert_other_libs, :install_gem]
+task :revert_other_libs do
+  %w{libCocoa* libShelley*}.each{|lib|
+    sh "git checkout -- gem/frank-skeleton/#{lib}"
+  }
+end
+task :install_libfrank do
+  if ENV["GEM_HOME"]
+    # for rvm
+    sh "cp dist/libFrank* $GEM_HOME/gems/frank-cucumber-#{PRODUCT_VERSION}/frank-skeleton/"
+    sh "rsync -avr gem/lib $GEM_HOME/gems/frank-cucumber-#{PRODUCT_VERSION}/"
+  else
+    raise RuntimeError, "non-RVM enviroments are not supported."
+  end
+end
+task :install_gem do
+  sh "( cd gem; gem build frank-cucumber.gemspec && gem install frank-cucumber-#{PRODUCT_VERSION}.gem )"
+end

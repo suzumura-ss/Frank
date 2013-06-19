@@ -7,6 +7,7 @@
 //
 
 #import "FileChangeObserver.h"
+#include <sys/stat.h>
 
 #undef Assert
 #define Assert(COND) { if (!(COND)) { raise( SIGINT ) ; } }
@@ -48,30 +49,44 @@
 //
 static void (^kqueue_main)(FileChangeObserver *) = ^(__unsafe_unretained FileChangeObserver* self)
 {
-    int fd = open([[self.url path] fileSystemRepresentation], O_EVTONLY);
-    Assert( fd >= 0 );
-    
-    int q = self.kqueue;
-    {
-        struct kevent event = {
-            .ident  = fd,
-            .filter = EVFILT_VNODE,
-            .flags  = EV_ADD | EV_CLEAR,
-            .fflags = self.typeMask,
-        };
-        int error = kevent(q, &event, 1, NULL, 0, NULL);
-        Assert(error == 0);
-    }
-    
-    struct kevent event = {0};
     while (true) {
-        int nEvents = kevent(q, NULL, 0, &event, 1, NULL);
-        if (nEvents!=1) { break; }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate fileChanged:self typeMask:(FileChangeNotificationType)event.fflags];
-        });
-	}
-} ;
+        int fd = open([[self.url path] fileSystemRepresentation], O_EVTONLY);
+        if (fd<0) {
+            usleep(100);
+            continue;
+        }
+        
+        int q = self.kqueue;
+        {
+            struct kevent event = {
+                .ident  = fd,
+                .filter = EVFILT_VNODE,
+                .flags  = EV_ADD | EV_CLEAR,
+                .fflags = self.typeMask,
+            };
+            int error = kevent(q, &event, 1, NULL, 0, NULL);
+            Assert(error == 0);
+        }
+        
+        struct kevent event = {0};
+        while (true) {
+            int nEvents = kevent(q, NULL, 0, &event, 1, NULL);
+            if (nEvents!=1) {
+                NSLog(@"kevent() failed - %s", strerror(errno));
+                break;
+            }
+            __block FileChangeNotificationType e = event.fflags;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate fileChanged:self typeMask:e];
+            });
+            if (e & NOTE_DELETE) {
+                NSLog(@"DELETE detected.");
+                break;
+            }
+        }
+        close(fd);
+    }
+};
 
 
 -(void)stopObserving

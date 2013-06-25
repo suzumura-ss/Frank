@@ -74,6 +74,10 @@
 		4C1DD76D12BADFE100E10B8C /* OrientationCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1DD76912BADFE100E10B8C /* OrientationCommand.h */; };
 		4C1DD76E12BADFE100E10B8C /* AppCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1DD76A12BADFE100E10B8C /* AppCommand.m */; };
 		4C1DD76F12BADFE100E10B8C /* AppCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C1DD76B12BADFE100E10B8C /* AppCommand.h */; };
+		5236EABD1779CAA600DD84A6 /* FileChangeObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 5236EAB91779CAA600DD84A6 /* FileChangeObserver.h */; };
+		5236EABE1779CAA600DD84A6 /* FileChangeObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 5236EABA1779CAA600DD84A6 /* FileChangeObserver.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5236EABF1779CAA600DD84A6 /* FrankProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5236EABB1779CAA600DD84A6 /* FrankProxy.h */; };
+		5236EAC01779CAA600DD84A6 /* FrankProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5236EABC1779CAA600DD84A6 /* FrankProxy.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		65DBDD7416A89CCA007D3D43 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7947C115C4418700052B74 /* GCDAsyncSocket.m */; };
 		65DBDD8D16A89CCA007D3D43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		65DBDDA816A89CDC007D3D43 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = ABA9E4BB15C81E7900112290 /* DDAbstractDatabaseLogger.m */; };
@@ -316,6 +320,10 @@
 		4C1DD76912BADFE100E10B8C /* OrientationCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrientationCommand.h; sourceTree = "<group>"; };
 		4C1DD76A12BADFE100E10B8C /* AppCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCommand.m; sourceTree = "<group>"; };
 		4C1DD76B12BADFE100E10B8C /* AppCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCommand.h; sourceTree = "<group>"; };
+		5236EAB91779CAA600DD84A6 /* FileChangeObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileChangeObserver.h; sourceTree = "<group>"; };
+		5236EABA1779CAA600DD84A6 /* FileChangeObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileChangeObserver.m; sourceTree = "<group>"; };
+		5236EABB1779CAA600DD84A6 /* FrankProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrankProxy.h; sourceTree = "<group>"; };
+		5236EABC1779CAA600DD84A6 /* FrankProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrankProxy.m; sourceTree = "<group>"; };
 		65DBDD9216A89CCA007D3D43 /* libCocoaAsyncSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoaAsyncSocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DBDDB516A89CDC007D3D43 /* libCocoaLumberjack.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoaLumberjack.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DBDDDA16A89E5B007D3D43 /* libCocoaAsyncSocketMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoaAsyncSocketMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -745,6 +753,10 @@
 				D67F2ABE13F5F55A00A0BFF1 /* FrankLoader.m */,
 				D6D05CA511C883AA0081C5A5 /* FrankServer.h */,
 				D6D05CA611C883AA0081C5A5 /* FrankServer.m */,
+				5236EAB91779CAA600DD84A6 /* FileChangeObserver.h */,
+				5236EABA1779CAA600DD84A6 /* FileChangeObserver.m */,
+				5236EABB1779CAA600DD84A6 /* FrankProxy.h */,
+				5236EABC1779CAA600DD84A6 /* FrankProxy.m */,
 			);
 			name = Frank;
 			sourceTree = "<group>";
@@ -865,6 +877,8 @@
 				303CFCE416C80B830004BD05 /* DeviceCommand.h in Headers */,
 				30E82E3217128AB500E5BC7C /* ResolutionCommand.h in Headers */,
 				0626BFAE174300240020B33B /* DumpCommandRoute.h in Headers */,
+				5236EABD1779CAA600DD84A6 /* FileChangeObserver.h in Headers */,
+				5236EABF1779CAA600DD84A6 /* FrankProxy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1238,6 +1252,8 @@
 				30E82E3417128AB500E5BC7C /* ResolutionCommand.m in Sources */,
 				387BFA7D17036DDA007B9F17 /* UISlider+PublicAutomation.m in Sources */,
 				0626BFAF174300240020B33B /* DumpCommandRoute.m in Sources */,
+				5236EABE1779CAA600DD84A6 /* FileChangeObserver.m in Sources */,
+				5236EAC01779CAA600DD84A6 /* FrankProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
